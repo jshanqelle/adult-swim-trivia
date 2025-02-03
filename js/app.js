@@ -50,7 +50,7 @@
         ]
     };
     function init() {
-        resetgame();
+        resetGame();
     
 let score = 0;
 let timer;
@@ -65,7 +65,16 @@ const boondocksBoard = document.getElementById('Boondocks-board');
 
 
 }
+function hideOtherQuiz(selected) {
+    selected = selected;
+    if (selected === "RickandMorty") {
+        boondocksBoard.style.display = "none";
+    } else {
+        rickAndMortyBoard.style.display = "none";
+    }
+}
 function checkAnswer(event) {
+    console.log('This is clicked');
     if (rickAndMortyBoard('question')) {
         clearInterval(timer);
         const buttons = event.target.rickAndMortyBoard.querySelectorAll('button');
@@ -75,9 +84,11 @@ function checkAnswer(event) {
                 correctAnswer = button;
             } else if (button.answer === "wrong") {
                 wrongAnswer = button;
-            }
+            } ;
         })
-    }    if (event.target.dataset.answer === "correct") {
+    }   
+    
+    if (event.target.dataset.answer === "correct") {
         event.target.style.backgroundColor = "green";
         score++;
     } else {
@@ -112,17 +123,31 @@ function nextQuestion() {
         resetGame();
     }
 }
-
-function resetGame() {
-    clearInterval(timer);
-    score = 0;
-    timeLeft = 30;
-    rickAndMortyBoard.display = "block";
-    boondocksBoard.display = "block";
-    selectedQuiz = null;
-        document.querySelectorAll(".question").forEach(button => {
-            button.style.backgroundColor = "";
+document.querySelectorAll(".question").forEach(button => {
+        button.addEventListener("click", () => {
+            if (button.id === "Pirates" || button.id === "Death" || button.id === "Parasite" || 
+                button.id === "Lawnmower" || button.id === "Curtians" || button.id === "Kelly" || 
+                button.id === "Jabba" || button.id === "Rummy" || button.id === "King") {
+                button.classList.add("correct");
+                button.innerText += " ✅ Correct!";
+                score += 10; // Increase score for correct answer
+            } else {
+                button.classList.add("wrong");
+                button.innerText += " ❌ Wrong!";
+            }
         });
-        render();
-    }
+    });
+    function resetGame() {
+        clearInterval(timer);
+        timeLeft = 30;
+        rickAndMortyBoard.display = "block";
+        boondocksBoard.display = "block";
+        selectedQuiz = null;
+            document.querySelectorAll(".question").forEach(button => {
+                button.style.backgroundColor = "";
+            });
+            render();
+        
+        }
 
+    
