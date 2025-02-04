@@ -52,14 +52,18 @@ const quizData = {
 //need to init game and reset it
 function init() {
     resetGame();
+    rickAndMortyBoard.addEventListener("click", () => startQuiz("RickandMorty"));
+    boondocksButton.addEventListener("click", () => startQuiz("TheBoondocksQuiz"));
+    resetButton.addEventListener("click", resetGame);
 }
-//structure game functions and events
+//Variables
 let score = 0;
 let timer;
 let timeLeft = 30;
-let answeredQuestions = 0;
+let currentQuiz = null;
 
-const questions = document.querySelectorAll(".question");
+//DOM ELements
+const quizContainer = document.getElementById('quiz-container');
 const scoreDisplay = document.getElementById('Score');
 const timerDisplay = document.getElementById('timer');
 const resetButton = document.getElementById('reset');
@@ -68,108 +72,87 @@ const boondocksBoard = document.getElementById('boondocks-board');
 console.log(rickAndMortyBoard);
 console.log(boondocksBoard);
 
+//make sure to hide quiz boards initially
+
+
+
 //create a function for the timer to start working as soon as the player clicks on the selected trivia quiz
-
-
-
-
-
-
-
-
-
-
-//a way to check each answer to the selected trivia quiz; the question is marked red for wrong and green for correct
-    function checkAnswer(event) {
-    console.log('This is clicked');
-    if (rickAndMortyBoard('question')) {
-        clearInterval(timer);
-        const buttons = event.target.rickAndMortyBoard.querySelectorAll('button');
-        let correctAnswer;
-        buttons.foreach(button => {
-            if (button.answer === "correct") {
-                correctAnswer = button;
-            } else if (button.answer === "wrong") {
-                wrongAnswer = button;
-            } ;
-        })
-    }   if (event.target.dataset.answer === "correct") {
-        event.target.style.backgroundColor = "green";
-        score++;
-    } else {
-        event.target.style.backgroundColor = "red";
-        correctAnswer.style.backgroundColor = "green";
-    }
- if (boondocksBoard('question')) {
+//utilized W3 website for creativity and mdn web docs
+function startTimer() {
     clearInterval(timer);
-        const buttons = event.target.boondocksBoard.querySelectorAll('button');
-        let correctAnswer;
-        buttons.foreach(button => {
-            if (button.answer === "correct") {
-                correctAnswer = button
-            } else if (button.answer === "wrong") {
-                wrongAnswer = button;
-            }
-        })
-    }   if (event.target.dataset.answer === "correct") {
-        event.target.style.backgroundColor = "green";
-        score++;
-    } else {
-        event.target.style.backgroundColor = "red";
-        correctAnswer.style.backgroundColor = "green";
-    }   render();
-         setTimeout(nextQuestion,30)
-}  
-console.log()
+    timeLeft = 30;
+    timerDisplay.textContent = timeLeft;
 
-function nextQuestion() {
-    if (score >= 5) {
-        alert(`${'You Won'}!`);
-        resetGame();
-    }
+    timer = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Time's up! You lost.");
+            resetGame();
+        }
+    }, 1000);
 }
 
+// create a function to start the quiz
+function selectQuiz(category)
 
-document.querySelectorAll(".question").forEach(button => {
+
+
+
+// function to generate quiz questions in the DOM
+
+
+//Make sure to have correct answer marked and add event listeners
+
+
+
+//create a function to check the answers and make sure to disable all buttons in the question group, also make sure the score is displayed
+
+ // Function to check answer
+ function checkAnswer(event) {
+    const clickedButton = event.target;
+    const isCorrect = clickedButton.dataset.answer === "correct";
+
    
-    button.addEventListener("click", () => {
-        console.log(rickAndMortyBoard);
-        if (button.id === "Pirates" || button.id === "Death" || button.id === "Parasite" || 
-            button.id === "Lawnmower" || button.id === "Curtians" || button.id === "Kelly" || 
-            button.id === "Jabba" || button.id === "Rummy" || button.id === "King") {
-            button.classList.add("correct");
-            button.innerText += " ✅ Correct!";
-            score += 10; // Increase score for correct answer
-        } else {
-            button.classList.add("wrong");
-            button.innerText += " ❌ Wrong!";
-           
+    const parentList = clickedButton.closest("ul");
+    const buttons = parentList.querySelectorAll("button");
 
+    buttons.forEach(button => {
+        button.disabled = true;
+        if (button.dataset.answer === "correct") {
+            button.style.backgroundColor = "green";
+        } else {
+            button.style.backgroundColor = "red";
         }
     });
-});
 
+    if (isCorrect) {
+        score += 10;
+    }
 
-// make sure each trivia buttion will activate upon being clicked on or deactivate if not chosen
+    scoreDisplay.textContent = score;
+}
 
-
-
-
-
-
-
-
-// make sure game resets 
+//create a function to reset the game
 function resetGame() {
     clearInterval(timer);
     score = 0;
-    answeredQuestions = 0;
+    timeLeft = 30;
     scoreDisplay.textContent = score;
-    timerDisplay.textContent = "30";
-
-    // Remove styling and re-enable buttons
-    questions.forEach(button => {
-        button.classList.remove("correct", "wrong");
-        button.disabled = false;
-    });
+    timerDisplay.textContent = timeLeft;
 }
+
+
+//add event listners
+    
+
+
+
+
+
+
+
+
+
