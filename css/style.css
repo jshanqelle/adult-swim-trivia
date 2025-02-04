@@ -1,5 +1,9 @@
+#boondocks-board {
+    display: block;
+}
 
-
-
+#rick-morty-board {
+   display: none;
+}
 
 

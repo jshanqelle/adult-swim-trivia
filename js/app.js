@@ -51,7 +51,7 @@
     };
     function init() {
         resetGame();
-    
+    }
 let score = 0;
 let timer;
 let timeLeft = 30;
@@ -61,10 +61,14 @@ const scoreDisplay = document.getElementById('Score');
 const timerDisplay = document.getElementById('timer');
 const resetButton = document.getElementById('reset');
 const rickAndMortyBoard = document.getElementById('rick-morty-board');
-const boondocksBoard = document.getElementById('Boondocks-board');
+const boondocksBoard = document.getElementById('boondocks-board');
+console.log(rickAndMortyBoard);
+console.log(boondocksBoard);
 
 
-}
+// start with blank screen where you only have two choices on the screen
+// the rick & morty button and the Boondocks button, where player can make a choice that leads them to the quiz
+//make a function that would display the chosen quiz
 function hideOtherQuiz(selected) {
     selected = selected;
     if (selected === "RickandMorty") {
@@ -96,7 +100,7 @@ function checkAnswer(event) {
         correctAnswer.style.backgroundColor = "green";
     }
  if (boondocksBoard('question')) {
-        clearInterval(timer);
+    clearInterval(timer);
         const buttons = event.target.boondocksBoard.querySelectorAll('button');
         let correctAnswer;
         buttons.foreach(button => {
@@ -124,7 +128,9 @@ function nextQuestion() {
     }
 }
 document.querySelectorAll(".question").forEach(button => {
+   
         button.addEventListener("click", () => {
+            console.log(rickAndMortyBoard);
             if (button.id === "Pirates" || button.id === "Death" || button.id === "Parasite" || 
                 button.id === "Lawnmower" || button.id === "Curtians" || button.id === "Kelly" || 
                 button.id === "Jabba" || button.id === "Rummy" || button.id === "King") {
@@ -134,9 +140,12 @@ document.querySelectorAll(".question").forEach(button => {
             } else {
                 button.classList.add("wrong");
                 button.innerText += " ❌ Wrong!";
+               
+
             }
         });
     });
+
     function resetGame() {
         clearInterval(timer);
         timeLeft = 30;
@@ -150,4 +159,5 @@ document.querySelectorAll(".question").forEach(button => {
         
         }
 
-    
+    //target the boondocks and rick & morty buttons by id and cache the var. 
+    //add an event lisener function to both of the buttons that will set each button to display:block
