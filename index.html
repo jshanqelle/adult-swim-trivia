@@ -1,99 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js" defer></script>
- <title>Adult Swim Trivia!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adult Swim Trivia!</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Adult Swim Trivia! </h1>
-    <p> Hello Player & Welcome</p>
-    <p>Test Your Knowledge Of These Adult Swim Shows</p>
-    <div id="game-info">
-        <h3>⏳ Time Left: <span id="timer">30</span> seconds</h3>
-        <h3>🏆 Score: <span id="score">0</span></h3>
-    </div>
-<h2> Trivia Quiz Categories</h2>
-<div class="quiz-container">
-    <button id="RickandMorty">Rick & Morty Trivia</button>
-    <section class="board" id="rick-morty-board">
-<ol>
-<h4>What is one thing <strong>Rick</strong> is Afraid of?</h4>
-<ul>
-    <button class="question" id="Pirates" data-answer="correct"><li>Pirates</li></button><br>
-    <button class="question" id="Gazorpians"><li>Gazorpians</li></button><br>
-    <button class="question" id="Cromulons"><li>Cromulons</li></button><br>
-    <button class="question" id="Scary"><li>Scary Terry</li></button>
-</ul>
-<h4>What does rick and Morty act as a <em>reference</em> to?</h4>
-<ul>
-    <button class="question" id="Anxiety"><li>Anxiety</li></button><br>
-    <button class="question"  id="Death"><li>The Five stages of Death</li></button><br>
-    <button class="question" id="Bipolar" data-answer="correct"><li>Bipolar Disorder</li></button><br>
-    <button class="question" id="Schizophrenia"><li>Schizophrenia</li></button>
-</ul>
-<h4>What is Mr. Poopybutthole?</h4>
-<ul>
-   <button class="question" id="Dog"><li>A dog walking on two legs.</li></button><br>
-    <button class="question" id="Imagination"><li>An Imagination conjured by Morty made in physical form.</form></li></button><br>
-    <button class="question" id="Hemorrhoid"><li>A Walking Hemorrhoid thats able to walk and talk.</li></button><br>
-    <button class="question" id="Parasite" data-answer="correct"><li>He is the Parasite Catalyst for all parastie infiltration</li></button>
-</ul>
-<h4>What episode of rick and Morty is based on the movie Inception?</h4>
-<ul>
-   <button class="question" id="Destroy"><li>Meeseeks and Destroy</li></button><br>
-   <button class="question" id="Rixty"><li>Rixty Minutes</li></button><br>
-   <button class="question" id="Lawnmower"data-answer="correct" ><li>Lawnmower Dog</li></button><br>
-   <button class="question" id="Squanchers"><li>The Wedding Squanchers</li></button>
-</ul>
-<h4>what was the band made up of Rick, Bird person, and Squanchy called?</h4>
-<ul>
-    <button class="question" id="Beatles"><li>The Beatles</li></button><br>
-    <button class="question" id="AC/DC"><li>AC/DC</li></button><br>
-    <button class="question" id="Beastie"><li>Beastie Boys</li></button><br>
-    <button class="question" id="Curtians" data-answer="correct"><li>The Flesh Curtians</li></button>
-</ul>
-</ol>
-    </div>
-     <div class="quiz-container">
-</body>
-    </section><button id="TheBoondocks">The Boondocks Trivia</button> 
-    <section class="board" id="boondocks-board">
-<ol>
-    <h4>What was one prediction in the show that shows uptoday in society anbd had taken tiktok by storm for a while?</h4>
-        <ul>
-        <button class="question" id="Simpson"><li>The Trial of O.J. Simpson</li></button><br>
-        <button class="question" id="Diddy"><li>The Trial Of Diddy</li></button><br>
-        <button class="question" id="Kelly" data-answer="correct"><li>The Trial of R. Kelly</li></button><br>
-        <button class="question" id="Depp"><li>The Trial of Depp vs. Heard</li></button>
-        </ul>
-        <h4>Where does the Uncle Rukus theme song come from?</h4>
-        <ul>
-            <button class="question" id="Rangers"><li>Go Go Power Rangers</li></button><br>
-            <button class="question" id="Possible"><li>Kim Possible</li></button><br>
-            <button class="question" id="Busters"><li>Canon Busters</li></button><br>
-            <button class="question" id="Jabba" data-answer="correct"><li>Jabba The Hutts's theme song in StarWars</li></button>
-        </ul>
-        <h4>Name two characters that were actually based off real-life politicains George W. Bush and Donald Rumsfield.</h4>
-        <ul>
-            <button class="question" id="Rummy" data-answer="correct"><li>Ed Wuncler III & Gin Rummy</li></button><br>
-            <button class="question" id="Slickback"><li>A pimp named Slickback & Thugnificent</li></button><br>
-            <button class="question" id="Tom"><li>Tom Dubois & Uncle Rukus</li></button><br>
-            <button class="question" id="Brown"><li>Colonel H. Stickmeaner & Bushido Brown</li></button>
-        </ul>
-        <h4>Name the actress that is Behind Both Riley and Hueys Freeman voices.</h4>
-        <ul>
-            <button class="question" id="Henson"><li>Taraji P. Henson</li></button><br>
-            <button class="question" id="King" data-answer="correct"><li>Regina King</li></button><br>
-            <button class="question" id="Palmer"><li>KeKe Palmer</li></button><br>
-            <button class="question" id="Davis"><li>Viola Davis</li></button>
-        </ul>
-    
-</ol>
-</section>
-</div>
-     <button id="reset">Reset Game</button>
+  <h1>Adult Swim Trivia!</h1>
+
+  <!-- Timer & Score -->
+  <div id="game-info">
+    <h3>Time Left: <span id="timer">30</span> seconds</h3>
+    <h3>Score: <span id="Score">0</span></h3>
+  </div>
+
+  <!-- Quiz Selection Buttons -->
+  <div id="quiz-selection">
+    <button id="RickandMorty">Rick & Morty Quiz</button>
+    <button id="TheBoondocksQuiz">The Boondocks Quiz</button>
+  </div>
+
+  <!-- Quiz Container -->
+  <div id="quiz-container"></div>
+
+  <!-- Reset Button -->
+  <button id="reset">Reset Game</button>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
