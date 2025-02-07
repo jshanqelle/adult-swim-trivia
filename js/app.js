@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
           question: "Which actress voices both Riley and Huey?",
           options: ["Taraji P. Henson", "Regina King", "KeKe Palmer", "Viola Davis"],
           answer: "Regina King"
+        },
+        {
+            question: "Who voiced Thugnificent, from the Boondocks and what was his title?",
+            options: ["Jennifer love Hewitt; actress", "Curtis L. Jackson,rapper", "Carl Jones, Executive Producer", "Dr. Dre, Producer"],
+            answer: "Carl Jones, Executive Producer"
         }
       ]
     };
@@ -55,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Variables
     let score = 0;
     let timer;
-    let timeLeft = 30;
+    let timeLeft = 10;
     let currentQuiz = null;
   
     // DOM Elements
@@ -65,23 +70,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const resetButton = document.getElementById("reset");
     const rickAndMortyButton = document.getElementById("RickandMorty");
     const boondocksButton = document.getElementById("TheBoondocksQuiz");
+    console.log("RickandMorty");
+    console.log("TheBoondocksQuiz");
   
     // Timer Function
     function startTimer() {
       clearInterval(timer);
-      timeLeft = 30;
+      timeLeft = 10;
       timerDisplay.textContent = timeLeft;
   
       timer = setInterval(() => {
         timeLeft--;
         timerDisplay.textContent = timeLeft;
-  
         if (timeLeft <= 0) {
           clearInterval(timer);
           alert("Time's up! You lost.");
           resetGame();
         }
       }, 1000);
+      console.log(startTimer);
     }
   
     // Function to Start Quiz
@@ -100,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to Generate Quiz Questions
     function generateQuiz(category) {
       quizContainer.innerHTML = ""; // Clear previous quiz
+      answeredQuestions = 0;
+
       quizData[category].forEach((questionObj, index) => {
         const questionDiv = document.createElement("div");
         questionDiv.classList.add("question-block");
@@ -129,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
         questionDiv.appendChild(optionList);
         quizContainer.appendChild(questionDiv);
       });
+    console.log(selectQuiz);
     }
   
     // Function to Check Answer
@@ -154,23 +164,34 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       scoreDisplay.textContent = score;
     }
+    // Function to Check Win Condition
+    function checkWin() {
+      if (answeredQuestions === quizData[currentQuiz].length) {
+          alert("You Win!");
+          resetGame();
+      } else {
+          alert("You haven't answered all questions yet!");
+      }
+  }
   
     // Function to Reset the Game
     function resetGame() {
       clearInterval(timer);
       score = 0;
-      timeLeft = 30;
+      timeLeft = 10;
       scoreDisplay.textContent = score;
       timerDisplay.textContent = timeLeft;
       quizContainer.style.display = "none";
       // Show quiz selection buttons again
       rickAndMortyButton.style.display = "inline-block";
       boondocksButton.style.display = "inline-block";
+      console.log(resetGame);
     }
   
     // Event Listeners for Quiz Selection and Reset
     rickAndMortyButton.addEventListener("click", () => selectQuiz("RickandMorty"));
     boondocksButton.addEventListener("click", () => selectQuiz("TheBoondocksQuiz"));
     resetButton.addEventListener("click", resetGame);
+    
   });
   
