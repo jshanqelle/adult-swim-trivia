@@ -29,7 +29,19 @@ body {
     border-radius: 5px;
     color: #ffcc00;
   }
-  
+  /* Welcome Section */
+#welcome {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+#welcome input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ffcc00;
+  border-radius: 5px;
+}
   /* Quiz Selection Buttons */
   #quiz-selection button {
     background-color: #ffcc00;
@@ -126,5 +138,45 @@ body {
     background-position: center;
     width: 200px;
     height: 100px;
+}
+/* =========================== */
+/* Winning & Losing Message    */
+/* =========================== */
+
+/* Container for Winning Message */
+#win-message {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border: 2px solid #00cc00;
+  background-color: #1f1f1f;
+  color: #00cc00;
+  font-size: 24px;
+  border-radius: 10px;
+  display: none; /* Hidden until win condition is met */
+}
+
+/* Container for Losing Message (Optional) */
+#lose-message {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border: 2px solid #cc0000;
+  background-color: #1f1f1f;
+  color: #cc0000;
+  font-size: 24px;
+  border-radius: 10px;
+  display: none; /* Hidden until lose condition is met */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #quiz-selection button {
+    width: 90%;
+  }
+  
+  #quiz-container {
+    width: 90%;
+  }
 }
 

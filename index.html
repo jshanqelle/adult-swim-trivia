@@ -9,10 +9,12 @@
 </head>
 <body>
   <h1>Adult Swim Trivia!</h1>
-
+  <div id="welcome">
+    <input type="text" id="username" placeholder="Enter your name and press Enter" />
+  </div>
   <!-- Timer & Score -->
   <div id="game-info">
-    <h3>Time Left: <span id="timer">10</span> seconds</h3>
+    <h3>Time Left: <span id="timer">30</span> seconds</h3>
     <h3>Score: <span id="Score">0</span></h3>
   </div>
 
@@ -24,7 +26,9 @@
 
   <!-- Quiz Container -->
   <div id="quiz-container"></div>
-
+<!-- Win/Lose Message Containers -->
+<div id="win-message" style="display: none;"></div>
+<div id="lose-message"></div>
   <!-- Reset Button -->
   <button id="reset">Reset Game</button>
   

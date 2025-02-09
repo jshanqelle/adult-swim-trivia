@@ -60,9 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Variables
     let score = 0;
     let timer;
-    let timeLeft = 10;
+    let timeLeft = 30;
     let currentQuiz = null;
-  
+    let answeredCount = 0; // Tracks number of answered questions
+
+
     // DOM Elements
     const quizContainer = document.getElementById("quiz-container");
     const scoreDisplay = document.getElementById("Score");
@@ -72,11 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const boondocksButton = document.getElementById("TheBoondocksQuiz");
     console.log("RickandMorty");
     console.log("TheBoondocksQuiz");
-  
+
+   // DOM Elements for Welcome/Enter Feature
+   const welcomeSection = document.getElementById("welcome");
+   const usernameInput = document.getElementById("username");
+   const quizSelection = document.getElementById("quiz-selection");
+
     // Timer Function
     function startTimer() {
       clearInterval(timer);
-      timeLeft = 10;
+      timeLeft = 30;
       timerDisplay.textContent = timeLeft;
   
       timer = setInterval(() => {
@@ -91,6 +98,16 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(startTimer);
     }
   
+// Event listener for Enter key on username input
+usernameInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" && usernameInput.value.trim() !== "") {
+    // Hide the welcome section and show quiz selection
+    welcomeSection.style.display = "none";
+    quizSelection.style.display = "block";
+    console.log("Welcome, " + usernameInput.value + "!");
+  }
+});
+
     // Function to Start Quiz
     function selectQuiz(category) {
       resetGame(); // Reset previous game state
@@ -164,21 +181,67 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       scoreDisplay.textContent = score;
     }
-    // Function to Check Win Condition
-    function checkWin() {
-      if (answeredQuestions === quizData[currentQuiz].length) {
-          alert("You Win!");
-          resetGame();
-      } else {
-          alert("You haven't answered all questions yet!");
-      }
+    // This function is called after each answer is processed.
+function checkWinCondition() {
+  // Determine the total number of questions in the current quiz.
+  const totalQuestions = quizData[currentQuiz].length;
+  
+  // If all questions have been answered...
+  if (answeredCount === totalQuestions) {
+    // Calculate the maximum possible score (10 points per question).
+    const maxScore = totalQuestions * 10;
+    
+    // If the player's score equals the maximum possible score...
+    if (score === maxScore) {
+      // Get the win message element and display the win message.
+      const winMessage = document.getElementById("win-message");
+      winMessage.textContent = "Congratulations, you win! All answers are correct!";
+      winMessage.style.display = "block";
+    }
   }
+}
+
+// Example: Your checkAnswer function that processes each answer.
+function checkAnswer(event) {
+  const clickedButton = event.target;
+  const isCorrect = clickedButton.dataset.answer === "correct";
+
+  // Disable all answer buttons for this question.
+  const parentQuestion = clickedButton.closest(".question-block");
+  const parentList = clickedButton.closest("ul");
+  const buttons = parentList.querySelectorAll("button");
+
+  buttons.forEach(button => {
+    button.disabled = true;
+    if (button.dataset.answer === "correct") {
+      button.classList.add("correct");
+    } else {
+      button.classList.add("wrong");
+    }
+  });
+
+  // Mark this question as answered only once.
+  if (!parentQuestion.classList.contains("answered")) {
+    parentQuestion.classList.add("answered");
+    answeredCount++;
+  }
+
+  // Update the score if the selected answer is correct.
+  if (isCorrect) {
+    score += 10;
+  }
+  scoreDisplay.textContent = score;
+
+  // Check if the win condition is met.
+  checkWinCondition();
+}
+
   
     // Function to Reset the Game
     function resetGame() {
       clearInterval(timer);
       score = 0;
-      timeLeft = 10;
+      timeLeft = 30;
       scoreDisplay.textContent = score;
       timerDisplay.textContent = timeLeft;
       quizContainer.style.display = "none";
