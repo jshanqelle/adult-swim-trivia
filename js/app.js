@@ -75,11 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("RickandMorty");
     console.log("TheBoondocksQuiz");
 
-   // DOM Elements for Welcome/Enter Feature
-   const welcomeSection = document.getElementById("welcome");
-   const usernameInput = document.getElementById("username");
-   const quizSelection = document.getElementById("quiz-selection");
-
+   
     // Timer Function
     function startTimer() {
       clearInterval(timer);
@@ -91,22 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
         timerDisplay.textContent = timeLeft;
         if (timeLeft <= 0) {
           clearInterval(timer);
-          alert("Time's up! You lost.");
           resetGame();
         }
       }, 1000);
       console.log(startTimer);
     }
   
-// Event listener for Enter key on username input
-usernameInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter" && usernameInput.value.trim() !== "") {
-    // Hide the welcome section and show quiz selection
-    welcomeSection.style.display = "none";
-    quizSelection.style.display = "block";
-    console.log("Welcome, " + usernameInput.value + "!");
-  }
-});
 
     // Function to Start Quiz
     function selectQuiz(category) {

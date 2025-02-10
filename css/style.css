@@ -29,19 +29,7 @@ body {
     border-radius: 5px;
     color: #ffcc00;
   }
-  /* Welcome Section */
-#welcome {
-  margin: 20px auto;
-  max-width: 400px;
-}
-
-#welcome input {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border: 2px solid #ffcc00;
-  border-radius: 5px;
-}
+  
   /* Quiz Selection Buttons */
   #quiz-selection button {
     background-color: #ffcc00;
