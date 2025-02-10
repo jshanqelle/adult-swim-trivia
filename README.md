@@ -13,11 +13,12 @@ I chose this type of game because it allows me to be creative. Who doesn't like 
 - **Dynamic Quiz Generation:** Questions and options are dynamically rendered from JavaScript data.
 - **Responsive Design:** The game is styled with a dark theme and is mobile-friendly.
 - **Instant Feedback:** Correct answers are highlighted in green and wrong answers in red.
+-
 
 # How to Play
 ## Getting Started
 **Link to Game:** 
-https://jshanqelle.github.io/adult-swim-trivia/
+[Google] https://jshanqelle.github.io/adult-swim-trivia/
 
 ### Select a Quiz:
 
@@ -52,9 +53,9 @@ Rick and Morty:
 >(https://screenrant.com/hidden-details-completely-missed-original-boondocks-series/)
 
 + **Images:**
-* image address: (https://static1.srcdn.com/wordpress/wp-content/uploads/2020/02/Featured-Image-1710x9001-14.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5)
+* image address: ![The Boondocks](https://static1.srcdn.com/wordpress/wp-content/uploads/2020/02/Featured-Image-1710x9001-14.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5/image)
 
-* image address( https://static1.srcdn.com/wordpress/wp-content/uploads/2021/08/Rick-and-Morty-Season-5-Finale-Trailer-Header.jpg?q=50&fit=crop&w=825&dpr=1.5)
+* image address ![Rick and Morty](https://static1.srcdn.com/wordpress/wp-content/uploads/2021/08/Rick-and-Morty-Season-5-Finale-Trailer-Header.jpg?q=50&fit=crop&w=825&dpr=1.5)
 
 **Help With some of the code and debugging:**
 * **url:** https://developer.mozilla.org/en-US/

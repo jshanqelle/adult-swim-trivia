@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let timeLeft = 30;
     let currentQuiz = null;
     let answeredCount = 0; // Tracks number of answered questions
-let audio
+
 
     // DOM Elements
     const quizContainer = document.getElementById("quiz-container");
@@ -74,7 +74,7 @@ let audio
     const boondocksButton = document.getElementById("TheBoondocksQuiz");
     console.log("RickandMorty");
     console.log("TheBoondocksQuiz");
-    const handClapping = new Audio("crowd-cheer-ii-6263")
+    const handClapping = new Audio("js/crowd-cheer-ii-6263")
 
    
     // Timer Function
@@ -224,11 +224,8 @@ function checkAnswer(event) {
   // Check if the win condition is met.
   checkWinCondition();
 }
-// audio file
 
-
-
-    // Function to Reset the Game
+// Function to Reset the Game
     function resetGame() {
       clearInterval(timer);
       score = 0;
