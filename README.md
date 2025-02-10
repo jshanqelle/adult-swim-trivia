@@ -62,5 +62,4 @@ Rick and Morty:
 * **url:** https://www.w3schools.com/
 
 ## Next Steps:
-
-+ I plan on addding more features and add more quizes to the game from my other favorite adult sim shows like Aqua Teen Hunger Force, Robot Chicken, American Dad, Attack on Titan, Bob's Burgers, Family Guy, Futurama, and Mr. Pickles to name a few. I always want to expand the questions to 20 instead of 5. I would like to add more graphics, animations and sounds. I want to make it a really fun experience, for example if you lose a question then a pie with smack the screen of one of the characters will boo you depending on the show you choose.
+I plan on addding more features and add more quizes to the game from my other favorite adult sim shows like Aqua Teen Hunger Force, Robot Chicken, American Dad, Attack on Titan, Bob's Burgers, Family Guy, Futurama, and Mr. Pickles to name a few. I always want to expand the questions to 20 instead of 5. I would like to add more graphics, animations and sounds. I want to make it a really fun experience, for example if you lose a question then a pie with smack the screen of one of the characters will boo you depending on the show you choose.
