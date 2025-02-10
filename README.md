@@ -3,7 +3,7 @@
 A browser-based quiz game that tests your knowledge of popular Adult Swim shows. This project features two quizzes (**Rick & Morty and The Boondocks**) with a 10-second countdown timer, a score tracker, and dynamic question rendering using HTML, CSS, and JavaScript.
 
 ## Background:
-I chose this type of game because it allows me to be creative. Who doesn't like a really good quiz about your favorite shows. I like educating people on things I love or take intrest in. This is one of the best ways to do it. Especially when you can quiz about fun facts most people don't know.
+I chose this type of game because it allows me to be creative. Who doesn't like a really good quiz about your favorite shows. I like educating people on things I love or take intrest in. This is one of the best ways to do it. Especially when you can quiz about fun facts most people don't know. Most people might think its silly but aoms of tha characters i can relate to in my everyday life. For example: Rick- he is really intelligent and sometimes that gets in the way of what matter most(family). I relate to this because I am always seeking and finding knowledge or new ways to do things and it gets in the way sometime of family time with my kids. I also feel teh same with Riley. Just like Riley as a kid I was influenced alot by my surrounding and society as a whole which changed how I think and process things which helped me grow mentally, which why i can relate to his brother Huey because Huey see things as a whole.
 
 ## Features
 
@@ -13,7 +13,7 @@ I chose this type of game because it allows me to be creative. Who doesn't like 
 - **Dynamic Quiz Generation:** Questions and options are dynamically rendered from JavaScript data.
 - **Responsive Design:** The game is styled with a dark theme and is mobile-friendly.
 - **Instant Feedback:** Correct answers are highlighted in green and wrong answers in red.
--
+- **Audio:** hanclapping audio chosen for congratulations piece at the end
 
 # How to Play
 ## Getting Started
