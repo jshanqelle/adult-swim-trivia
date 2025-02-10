@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let timeLeft = 30;
     let currentQuiz = null;
     let answeredCount = 0; // Tracks number of answered questions
-
+let audio
 
     // DOM Elements
     const quizContainer = document.getElementById("quiz-container");
@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const boondocksButton = document.getElementById("TheBoondocksQuiz");
     console.log("RickandMorty");
     console.log("TheBoondocksQuiz");
+    const handClapping = new Audio("crowd-cheer-ii-6263")
 
    
     // Timer Function
@@ -183,6 +184,8 @@ function checkWinCondition() {
       const winMessage = document.getElementById("win-message");
       winMessage.textContent = "Congratulations, you win! All answers are correct!";
       winMessage.style.display = "block";
+      handClapping.volume = .05
+  handClapping.play()
     }
   }
 }
@@ -221,8 +224,10 @@ function checkAnswer(event) {
   // Check if the win condition is met.
   checkWinCondition();
 }
+// audio file
 
-  
+
+
     // Function to Reset the Game
     function resetGame() {
       clearInterval(timer);
